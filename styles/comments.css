@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Space+Mono'); 
+
+.comment {
+  font-family: Fira Sans, Arial, sans-serif;
+  border: 1px solid #d7d7db;
+  font-size: 12px;
+  margin: 1em;
+  width: 50%;
+  position: relative;
+}
+
+.comment-diff {
+  font-family: Space Mono, SF Mono, Menlo, Consolas, monospace;
+  display: block;
+  background: #202340;
+  color: #f9f9fa;
+  white-space: pre-wrap;
+}
+.comment-resolve {
+  background: #30e60b;
+  color: #000;
+  border: 1px solid rgba(0,0,0,0.2);
+  font: inherit;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
