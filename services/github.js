@@ -10,7 +10,7 @@ class GithubConnector {
     return this.getRawComments().then(comments => {
       return comments.map(c => ({
         body: c.body,
-        diff: c.diff_hunk,
+        diff: trimLines(c.diff_hunk, 8, "last"),
         lineNumber: null,
         id: this.getCommentID(c._links.self.href),
       }))

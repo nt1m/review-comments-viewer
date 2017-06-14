@@ -28,3 +28,14 @@ function createElement(tagName, attributes, ...children) {
 
   return element;
 }
+
+function trimLines(str, max, keep) {
+  let lines = str.split("\n");
+  if (lines.length <= max) {
+    return str;
+  }
+  if (keep == "last") {
+    return lines.slice(lines.length - max, lines.length).join("\n");
+  }
+  return lines.slice(0, max).join("\n");
+}

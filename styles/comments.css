@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Space+Mono'); 
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .comment {
   font-family: Fira Sans, Arial, sans-serif;
   border: 1px solid #d7d7db;
   font-size: 12px;
   margin: 1em;
-  width: 50%;
   position: relative;
+  overflow: hidden;
 }
 
 .comment-diff {
@@ -14,8 +19,15 @@
   display: block;
   background: #202340;
   color: #f9f9fa;
-  white-space: pre-wrap;
+  white-space: pre;
+  overflow: auto;
 }
+
+.comment-body {
+  text-align: justify;
+  padding: 1em;
+}
+
 .comment-resolve {
   background: #30e60b;
   color: #000;
