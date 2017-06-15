@@ -7,11 +7,12 @@ body {
 
 .comment {
   font-family: Fira Sans, Arial, sans-serif;
-  border: 1px solid #d7d7db;
+  border: 1px solid rgba(0,0,0,0.1);
   font-size: 12px;
   margin: 1em;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
 .comment-diff {

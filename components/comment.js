@@ -1,29 +1,22 @@
 "use strict";
 
-class Comment {
-  constructor(comment) {
-    this.el = createElement("div", {
-      class: "comment"
-    },
-      createElement("code", {
-        class: "comment-diff",
-        content: comment.diff,
-      }),
-      createElement("p", {
-        class: "comment-body",
-        content: comment.body,
-      }),
-      createElement("button", {
-        content: "Resolve",
-        class: "comment-resolve",
-        onclick: this.removeComment.bind(this)
-      })
-    );
-    return this.el;
-  }
-
-  removeComment() {
-    this.el.remove();
-
-  }
+function Comment({ comment }) {
+  return createElement("div", {
+    className: "comment"
+  },
+    createElement("code", {
+      className: "comment-diff",
+    }, comment.diff),
+    createElement("p", {
+      className: "comment-body",
+    }, comment.body),
+    createElement("button", {
+      content: "Resolve",
+      className: "comment-resolve",
+      onClick() {
+        const state = stateManager.getState();
+        stateManager.setState({ comments: state.comments.filter(c => c.id !== comment.id) })
+      }
+    }, "Resolve")
+  );
 }

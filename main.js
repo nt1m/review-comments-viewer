@@ -4,7 +4,16 @@ let github = new GithubConnector({
   pullRequest: 76,
 });
 
+const stateManager = new StateManager({
+  renderer(state) {
+    let root = document.getElementById("root");
+    ReactDOM.render(new Comments({ comments: state.comments }), root);
+  },
+  initialState: {
+    projects: [],
+  },
+});
+
 github.getReviewComments().then(comments => {
-  let root = document.getElementById("root");
-  root.appendChild(new Comments(comments));
+  stateManager.setState({ comments });
 });

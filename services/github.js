@@ -11,6 +11,7 @@ class GithubConnector {
       return comments.map(c => ({
         body: c.body,
         diff: trimLines(c.diff_hunk, 8, "last"),
+        file: c.path,
         lineNumber: null,
         id: this.getCommentID(c._links.self.href),
       }))
