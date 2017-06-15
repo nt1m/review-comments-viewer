@@ -1,6 +1,7 @@
 "use strict";
 
 function Comment({ comment }) {
+  let isOpened = !!stateManager.getState().opened.find(c => c.id == comment.id);
   return createElement("div", {
     className: "comment"
   },
@@ -11,12 +12,17 @@ function Comment({ comment }) {
       className: "comment-body",
     }, comment.body),
     createElement("button", {
-      content: "Resolve",
-      className: "comment-resolve",
+      className: isOpened ? "comment-resolve" : "comment-reopen",
       onClick() {
         const state = stateManager.getState();
-        stateManager.setState({ comments: state.comments.filter(c => c.id !== comment.id) })
+        if (isOpened) {
+          stateManager.setState({ opened: state.opened.filter(c => c.id !== comment.id) });
+          stateManager.state.resolved.push(comment);
+        } else {
+          stateManager.setState({ resolved: state.resolved.filter(c => c.id !== comment.id) });
+          stateManager.state.opened.push(comment);
+        }
       }
-    }, "Resolve")
+    }, isOpened ? "Resolve" : "Reopen")
   );
 }

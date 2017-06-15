@@ -1,0 +1,32 @@
+.tabs, .tabs li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tabs li {
+  display: inline-block;
+}
+
+.tabs li a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  padding: .5em 0;
+  margin: 0 1em;
+  position: relative;
+}
+.tabs li a::after {
+  content: "";
+  transition: transform 0.3s cubic-bezier(.07,.95,0,1);
+  transform: scale(0);
+  display: block;
+  background: #0a84ff;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  
+}
+.tabs li.selected a::after {
+  transform: none;
+}

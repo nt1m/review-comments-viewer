@@ -7,13 +7,26 @@ let github = new GithubConnector({
 const stateManager = new StateManager({
   renderer(state) {
     let root = document.getElementById("root");
-    ReactDOM.render(new Comments({ comments: state.comments }), root);
+    ReactDOM.render(Tabs({
+      selectedTab: state.selectedTab,
+      tabs: [{
+        id: "opened",
+        label: "Opened",
+        component: Comments({ comments: state.opened }),
+      }, {
+        id: "resolved",
+        label: "Resolved",
+        component: Comments({ comments: state.resolved }),
+      }]
+    }), root);
   },
   initialState: {
-    projects: [],
+    opened: [],
+    resolved: [],
+    selectedTab: "opened",
   },
 });
 
 github.getReviewComments().then(comments => {
-  stateManager.setState({ comments });
+  stateManager.setState({ opened: comments });
 });
