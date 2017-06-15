@@ -9,7 +9,7 @@ class Port {
     this.domain = domain;
 
     this.targetWindow = targetWindow;
-    this.targetWindow.postMessage({ connected: true }, domain);
+    this.targetWindow.postMessage({ connected: true }, location.origin);
   }
 
   sendMessage(message, reply) {
