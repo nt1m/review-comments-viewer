@@ -34,7 +34,7 @@ github.getReviewComments().then(comments => {
 if (window.parent) {
   let initPort = ({ origin }) => {
     let domain = getDomain(origin);
-    if (AUTHORIZED_DOMAINS.contains(domain)) {
+    if (AUTHORIZED_DOMAINS.includes(domain)) {
       let port = new Port({ domain: origin });
 
       window.removeEventListener("message", initPort);
