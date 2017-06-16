@@ -31,6 +31,9 @@ const { createElement } = React;
 // }
 
 function trimLines(str, max, keep) {
+  if (!str) {
+    return "";
+  }
   let lines = str.split("\n");
   if (lines.length <= max) {
     return str;

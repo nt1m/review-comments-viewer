@@ -28,6 +28,7 @@ const stateManager = new StateManager({
 });
 
 github.getReviewComments().then(comments => {
+  console.log(comments);
   stateManager.setState({ opened: comments });
 });
 
