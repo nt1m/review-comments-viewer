@@ -32,10 +32,10 @@ github.getReviewComments().then(comments => {
 });
 
 if (window.parent) {
-  let initPort = ({ origin }) => {
-    let domain = getDomain(origin);
+  let initPort = ({ data }) => {
+    let domain = getDomain(data.origin);
     if (AUTHORIZED_DOMAINS.includes(domain)) {
-      let port = window.port = new Port({ domain: origin, targetWindow: parent });
+      window.port = new Port({ domain: data.origin, targetWindow: parent });
       window.removeEventListener("message", initPort);
     }
   }
