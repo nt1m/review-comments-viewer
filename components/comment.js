@@ -3,7 +3,13 @@
 function Comment({ comment }) {
   let isOpened = !!stateManager.getState().opened.find(c => c.id == comment.id);
   return createElement("div", {
-    className: "comment"
+    className: "comment",
+    onClick() {
+      if (port && isOpened) {
+        port.sendMessage({ file: comment.file, lineNumber: comment.lineNumber });
+      }
+    }
+
   },
     createElement("code", {
       className: "comment-diff",
@@ -13,7 +19,7 @@ function Comment({ comment }) {
     }, comment.body),
     createElement("button", {
       className: isOpened ? "comment-resolve" : "comment-reopen",
-      onClick() {
+      onClick(e) {
         const state = stateManager.getState();
         if (isOpened) {
           stateManager.setState({ opened: state.opened.filter(c => c.id !== comment.id) });
@@ -22,6 +28,7 @@ function Comment({ comment }) {
           stateManager.setState({ resolved: state.resolved.filter(c => c.id !== comment.id) });
           stateManager.state.opened.push(comment);
         }
+        e.stopPropagation();
       }
     }, isOpened ? "Resolve" : "Reopen")
   );

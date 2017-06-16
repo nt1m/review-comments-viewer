@@ -35,8 +35,7 @@ if (window.parent) {
   let initPort = ({ origin }) => {
     let domain = getDomain(origin);
     if (AUTHORIZED_DOMAINS.includes(domain)) {
-      let port = new Port({ domain: origin, targetWindow: parent });
-
+      let port = window.port = new Port({ domain: origin, targetWindow: parent });
       window.removeEventListener("message", initPort);
     }
   }
