@@ -1,3 +1,11 @@
+.comments:empty {
+  margin: 1em;
+  text-align: center;
+}
+.comments:empty::after {
+  content: "No comments found."
+}
+
 .comment {
   background: #fff;
   font-size: 12px;

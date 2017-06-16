@@ -2,7 +2,7 @@
 
 function Comments({ comments }) {
   return createElement("div", {
-    class: "comments",
+    className: "comments",
   },
     ...comments.map(c => Comment({ comment: c }))
   );
