@@ -1,7 +1,7 @@
 let github = new GithubConnector({
   owner: "JanitorTechnology",
   repoName: "janitor",
-  pullRequest: 76,
+  pullRequest: 79,
 });
 
 const stateManager = new StateManager({

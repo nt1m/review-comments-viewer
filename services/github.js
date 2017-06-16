@@ -18,7 +18,7 @@ class GithubConnector {
         body: c.body,
         diff: trimLines(c.diff_hunk, 8, "last"),
         file: c.path,
-        lineNumber: null,
+        lineNumber: getDiffLineNumber(c.diff_hunk),
         id: this.getCommentID(c._links.self.href),
       }))
     });

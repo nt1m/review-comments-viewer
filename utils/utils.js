@@ -43,3 +43,13 @@ function trimLines(str, max, keep) {
   }
   return lines.slice(0, max).join("\n");
 }
+
+function getDiffLineNumber(diff) {
+  const LINE_NUM_REGEX = /^@@ -\d+,\d+ \+(\d+),\d+ @@/ig;
+  const matches = LINE_NUM_REGEX.exec(diff);
+  if (!matches) {
+    return console.error("Not a diff", diff);
+  }
+
+  return Number(matches[1]) + diff.split("\n").filter(line => !line.startsWith("-")).length;
+}
