@@ -13,7 +13,13 @@ function Tabs({ tabs, selectedTab }) {
             stateManager.setState({ selectedTab: t.id })
           }
         }, t.label)
-      ))
+      )),
+      createElement("button", {
+        className: "settings-btn",
+        onClick() {
+          stateManager.setState({ setupDone: false });
+        }
+      })
     ),
     createElement("div", { className: "tab-panel" },
       selected.component

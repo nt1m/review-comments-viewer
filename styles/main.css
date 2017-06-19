@@ -5,6 +5,11 @@ body {
   padding: 0;
   font-family: Fira Sans, Arial, sans-serif;
   background: #f9f9fa;
+  color: #0c0c0d;
+}
+
+h1, h2 {
+  font-weight: 300;
 }
 
 [data-reactroot] {
@@ -21,4 +26,57 @@ body {
 .tab-panel {
   overflow: auto;
   flex: 1;
+}
+
+.settings-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  border: none;
+  background: none;
+}
+.settings-btn::after {
+  content: "";
+  display: inline-block;
+  background-image: url(../images/settings.svg);
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+.settings-btn.on {
+  background: #30e60b;
+  width: auto;
+}
+.settings-btn.on::after {
+}
+.settings-btn.on::before {
+  content: "Done editing";
+  margin-right: 10px;
+  vertical-align: middle;
+  font-size: 16px;
+  font-family: Fira Sans, sans-serif;
+}
+
+.settings-container {
+  padding: 2rem;
+}
+
+input {
+  display: block;
+  border: 1px solid #d7d7db;
+  border-radius: 1px;
+  font: inherit;
+  padding: .5em;
+  margin-top: .5em;
+}
+
+input:hover {
+  border-color: #737373
+}
+
+input:focus {
+  border-color: #0a84ff;
 }
