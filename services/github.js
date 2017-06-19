@@ -20,6 +20,7 @@ class GithubConnector {
         file: c.path,
         lineNumber: getDiffLineNumber(c.diff_hunk),
         id: this.getCommentID(c._links.self.href),
+        revision: c.pull_request_review_id,
       }))
     });
   }

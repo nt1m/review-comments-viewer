@@ -20,7 +20,15 @@ function setupGithub() {
   });
 
   github.getReviewComments().then(comments => {
-    stateManager.setState({ opened: comments });
+    if (Settings.get("github.lastRevision") !== comments[0].revision) {
+      Settings.set("github.lastRevision", comments[0].revision);
+      Settings.set("github.resolved", "[]");
+    }
+    let resolved = Settings.get("github.resolved", [], true);
+    stateManager.setState({ 
+      opened: comments.filter(c => !resolved.includes(c.id)),
+      resolved: comments.filter(c => resolved.includes(c.id)),
+    });
   });
 }
 
