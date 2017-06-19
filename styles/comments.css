@@ -58,6 +58,11 @@
   background: #ff0039;
   color: white;
 }
+
+.comment-view-file {
+  background: white;
+}
+
 .comment-resolve::before {
   background-image: url(../images/resolve.svg);
 }
