@@ -13,7 +13,8 @@ class GithubConnector {
       comments.forEach(c => maxPRID = Math.max(c.pull_request_review_id, maxPRID));
 
       return comments
-      .filter(c => c.diff_hunk && c.pull_request_review_id === maxPRID)
+      .sort((a, b) => a.pull_request_review_id < b.pull_request_review_id)
+      //.filter(c => c.diff_hunk && c.pull_request_review_id === maxPRID)
       .map(c => ({
         body: c.body,
         diff: trimLines(c.diff_hunk, 8, "last"),
@@ -21,6 +22,8 @@ class GithubConnector {
         lineNumber: getDiffLineNumber(c.diff_hunk),
         id: this.getCommentID(c._links.self.href),
         revision: c.pull_request_review_id,
+        user: c.user,
+        time: c.created_at,
       }))
     });
   }

@@ -6,6 +6,31 @@
   content: "No comments found."
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.user {
+  margin: 1em;
+  margin-top: 2em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.user > * {
+  vertical-align: middle;
+}
+.user-avatar {
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+  margin-right: .5em;
+}
+
+.user-action {
+  opacity: 0.5;
+}
 .comment {
   background: #fff;
   font-size: 12px;

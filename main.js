@@ -20,12 +20,13 @@ function setupGithub() {
   });
 
   github.getReviewComments().then(comments => {
+    console.log(comments);
     if (Settings.get("github.lastRevision") !== comments[0].revision) {
       Settings.set("github.lastRevision", comments[0].revision);
       Settings.set("github.resolved", "[]");
     }
     let resolved = Settings.get("github.resolved", [], true);
-    stateManager.setState({ 
+    stateManager.setState({
       opened: comments.filter(c => !resolved.includes(c.id)),
       resolved: comments.filter(c => resolved.includes(c.id)),
     });
