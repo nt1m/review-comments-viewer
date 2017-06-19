@@ -16,7 +16,7 @@
 }
 
 .comment-diff {
-  font-family: Space Mono, SF Mono, Menlo, Consolas, monospace;
+  font-family: Menlo, Consolas, monospace;
   display: block;
   background: #202340;
   color: #f9f9fa;
@@ -24,19 +24,54 @@
   overflow: auto;
 }
 
-.comment-body {
-  text-align: justify;
-  padding: 1em;
+.comment-contents {
+  display: flex;
+  
 }
 
 .comment-reopen,
-.comment-resolve {
+.comment-resolve,
+.comment-view-file {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
   background: #30e60b;
   color: #000;
-  border: 1px solid rgba(0,0,0,0.2);
   font: inherit;
-  padding: 10px;
-  position: absolute;
-  top: 0;
-  right: 0;
+  padding: 0 10px;
+  border: none;
+  border-left: 1px solid rgba(0,0,0,0.1);
+}
+
+.comment-reopen::before,
+.comment-resolve::before,
+.comment-view-file::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.comment-reopen {
+  background: #ff0039;
+  color: white;
+}
+.comment-resolve::before {
+  background-image: url(../images/resolve.svg);
+}
+
+.comment-reopen::before {
+  background-image: url(../images/unresolve.svg);
+}
+
+.comment-view-file::before {
+  background-image: url(../images/open-file.svg);
+}
+
+.comment-body {
+  text-align: justify;
+  padding: 1em;
+  flex: 1;
 }
