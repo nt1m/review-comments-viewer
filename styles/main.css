@@ -52,9 +52,10 @@ h1, h2 {
   width: auto;
 }
 .settings-btn.on::after {
+  background-image: url(../images/resolve.svg)
 }
 .settings-btn.on::before {
-  content: "Done editing";
+  content: "Finished";
   margin-right: 10px;
   vertical-align: middle;
   font-size: 16px;
