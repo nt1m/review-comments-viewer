@@ -15,6 +15,15 @@
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
+.comment-filepath {
+  font-family: Menlo, Consolas, monospace;
+  background: #0f1126;
+  width: 100%;
+  font-size: 1.1em;
+  display: block;
+  padding: 5px;
+  color: white;
+}
 .comment-diff {
   font-family: Menlo, Consolas, monospace;
   display: block;

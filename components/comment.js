@@ -5,6 +5,13 @@ function Comment({ comment }) {
   return createElement("div", {
     className: "comment",
   },
+    createElement("span", {
+      className: "comment-filepath",
+      onClick() {
+        if (typeof port !== "undefined" && isOpened)
+          port.sendMessage({ file: comment.file, lineNumber: comment.lineNumber });
+      }
+    }, comment.file + ":" + comment.lineNumber),
     createElement("code", {
       className: "comment-diff",
     }, comment.diff),
