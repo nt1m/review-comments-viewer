@@ -29,10 +29,12 @@ h1, h2 {
   flex: 1;
 }
 
-.settings-btn {
+.settings-btn:not(.on) {
   position: absolute;
   top: 0;
   right: 0;
+}
+.settings-btn {
   height: 35px;
   width: 35px;
   text-align: center;
@@ -48,8 +50,10 @@ h1, h2 {
   vertical-align: middle;
 }
 .settings-btn.on {
+  border-radius: 2px;
   background: #30e60b;
   width: auto;
+  margin: auto;
 }
 .settings-btn.on::after {
   background-image: url(../images/resolve.svg)

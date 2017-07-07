@@ -17,10 +17,6 @@ function SetupScreen() {
         e.preventDefault();
       }
     },
-      createElement("button", {
-        className: "settings-btn on",
-        type: "submit",
-      }),
       createElement("input", {
         placeholder: "Repo owner",
         name: "owner",
@@ -38,6 +34,10 @@ function SetupScreen() {
         name: "pr",
         type: "number",
         defaultValue: Settings.get("github.pr")
+      }),
+      createElement("button", {
+        className: "settings-btn on",
+        type: "submit",
       }),
     )
   );
