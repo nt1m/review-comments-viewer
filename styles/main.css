@@ -52,8 +52,9 @@ h1, h2 {
 .settings-btn.on {
   border-radius: 2px;
   background: #30e60b;
+  border: 1px solid rgba(0,0,0,0.2);
   width: auto;
-  margin: auto;
+  margin: 10px auto;
 }
 .settings-btn.on::after {
   background-image: url(../images/resolve.svg)
