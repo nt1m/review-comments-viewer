@@ -16,12 +16,6 @@ function Comment({ comment }) {
             port.sendMessage({ file: comment.file, lineNumber: comment.lineNumber });
         }
       }, comment.file + ":" + comment.lineNumber),
-      isInPlugin && createElement("button", {
-        className: "comment-view-file",
-        onClick() {
-          port.sendMessage({ file: comment.file, lineNumber: comment.lineNumber });
-        }
-      }, "View file"),
       createElement("button", {
         className: isOpened ? "comment-resolve" : "comment-reopen",
         onClick(e) {
