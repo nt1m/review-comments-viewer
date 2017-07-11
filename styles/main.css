@@ -8,6 +8,11 @@ body {
   color: #0c0c0d;
 }
 
+body.dark-theme {
+  background-color: #0c0c0d;
+  color: #f9f9fa;
+}
+
 h1, h2 {
   font-weight: 300;
 }
@@ -22,8 +27,12 @@ h1, h2 {
 .tabs {
   background: #fff;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
-
 }
+
+.dark-theme .tabs {
+  background: #4a4a4f; 
+}
+
 .tab-panel {
   overflow: auto;
   flex: 1;
@@ -40,8 +49,9 @@ h1, h2 {
   text-align: center;
   border: none;
   background: none;
+  cursor: pointer;
 }
-.settings-btn::after {
+.settings-btn:not(.on)::after {
   content: "";
   display: inline-block;
   background-image: url(../images/settings.svg);
@@ -49,19 +59,27 @@ h1, h2 {
   height: 16px;
   vertical-align: middle;
 }
+.dark-theme .settings-btn::after {
+  filter: invert(1);
+}
 .settings-btn.on {
   border-radius: 2px;
-  background: #30e60b;
+  background: #0a84ff;
+  color: #f9f9fa;
   border: 1px solid rgba(0,0,0,0.2);
   width: auto;
   margin: 10px auto;
 }
-.settings-btn.on::after {
-  background-image: url(../images/resolve.svg)
+.settings-btn.on:hover {
+  background: #0060df;
 }
+
+.settings-btn.on:hover:active {
+  background: #003eaa;
+}
+
 .settings-btn.on::before {
-  content: "Finished";
-  margin-right: 10px;
+  content: "Done";
   vertical-align: middle;
   font-size: 16px;
   font-family: Fira Sans, sans-serif;
@@ -69,6 +87,12 @@ h1, h2 {
 
 .settings-container {
   padding: 2rem;
+}
+
+.dark-theme input {
+  background: #4a4a4f;
+  color: #f9f9fc;
+  border-color: #4a4a4f;
 }
 
 input {

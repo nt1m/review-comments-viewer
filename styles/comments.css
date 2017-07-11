@@ -18,6 +18,10 @@ ul {
   border-bottom: 1px solid #ebebeb;
 }
 
+.dark-theme .user {
+  border-bottom-color: #4a4a4f;
+}
+
 .user > * {
   vertical-align: middle;
 }
@@ -40,6 +44,10 @@ ul {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
+.dark-theme .comment {
+  background: #4a4a4f;  
+}
+
 .comment-filepath {
   font-family: Menlo, Consolas, monospace;
   background: #0f1126;
@@ -60,7 +68,6 @@ ul {
 
 .comment-contents {
   display: flex;
-  
 }
 
 .comment-reopen,
@@ -76,6 +83,7 @@ ul {
   padding: 0 10px;
   border: none;
   border-left: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer;
 }
 
 .comment-reopen::before,
