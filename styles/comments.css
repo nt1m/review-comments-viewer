@@ -37,7 +37,7 @@ ul {
 }
 .comment {
   background: #fff;
-  font-size: 12px;
+  font-size: 14px;
   margin: 1em;
   position: relative;
   overflow: hidden;
@@ -52,10 +52,11 @@ ul {
   font-family: Menlo, Consolas, monospace;
   background: #0f1126;
   width: 100%;
-  font-size: 1.1em;
+  font-size: 1em;
   display: block;
   padding: 5px;
   color: white;
+  flex: 1;
 }
 .comment-diff {
   font-family: Menlo, Consolas, monospace;
@@ -66,34 +67,33 @@ ul {
   overflow: auto;
 }
 
-.comment-contents {
+.comment-actions {
   display: flex;
 }
 
 .comment-reopen,
 .comment-resolve,
 .comment-view-file {
-  display: flex;
-  flex-direction: column;
   text-align: center;
-  align-items: center;
   background: #30e60b;
   color: #000;
   font: inherit;
-  padding: 0 10px;
+  padding: 5px 10px;
   border: none;
   border-left: 1px solid rgba(0,0,0,0.1);
   cursor: pointer;
+  display: flex;
 }
 
-.comment-reopen::before,
-.comment-resolve::before,
-.comment-view-file::before {
+.comment-reopen::after,
+.comment-resolve::after,
+.comment-view-file::after {
   content: "";
   width: 16px;
   height: 16px;
   display: inline-block;
-  margin-bottom: 5px;
+  margin-left: 5px;
+  vertical-align: middle;
 }
 
 .comment-reopen {
@@ -105,20 +105,21 @@ ul {
   background: white;
 }
 
-.comment-resolve::before {
+.comment-resolve::after {
   background-image: url(../images/resolve.svg);
 }
 
-.comment-reopen::before {
+.comment-reopen::after {
   background-image: url(../images/unresolve.svg);
 }
 
-.comment-view-file::before {
+.comment-view-file::after {
   background-image: url(../images/open-file.svg);
 }
 
 .comment-body {
   text-align: justify;
-  padding: 1em;
+  padding: 0 1em;
   flex: 1;
+  word-break: break-all;
 }

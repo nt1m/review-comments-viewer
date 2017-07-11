@@ -5,22 +5,16 @@ function Comment({ comment }) {
   return createElement("div", {
     className: "comment",
   },
-    createElement("span", {
-      className: "comment-filepath",
-      onClick() {
-        if (typeof port !== "undefined" && isOpened)
-          port.sendMessage({ file: comment.file, lineNumber: comment.lineNumber });
-      }
-    }, comment.file + ":" + comment.lineNumber),
-    createElement("code", {
-      className: "comment-diff",
-    }, comment.diff),
     createElement("div", {
-      className: "comment-contents",
+      className: "comment-actions",
     },
-      createElement("p", {
-        className: "comment-body",
-      }, comment.body),
+      createElement("span", {
+        className: "comment-filepath",
+        onClick() {
+          if (typeof port !== "undefined" && isOpened)
+            port.sendMessage({ file: comment.file, lineNumber: comment.lineNumber });
+        }
+      }, comment.file + ":" + comment.lineNumber),
       (typeof port !== "undefined" && isOpened) && createElement("button", {
         className: "comment-view-file",
         onClick() {
@@ -43,6 +37,12 @@ function Comment({ comment }) {
           e.stopPropagation();
         }
       }, isOpened ? "Resolve" : "Reopen")
-    )
+    ),
+    createElement("code", {
+      className: "comment-diff",
+    }, comment.diff),
+    createElement("p", {
+      className: "comment-body",
+    }, comment.body)
   );
 }

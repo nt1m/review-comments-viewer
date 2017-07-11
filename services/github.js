@@ -13,7 +13,7 @@ class GithubConnector {
       comments.forEach(c => maxPRID = Math.max(c.pull_request_review_id, maxPRID));
 
       return comments
-      .sort((a, b) => a.pull_request_review_id < b.pull_request_review_id)
+      .sort((a, b) => a.pull_request_review_id > b.pull_request_review_id)
       //.filter(c => c.diff_hunk && c.pull_request_review_id === maxPRID)
       .map(c => ({
         body: c.body,
