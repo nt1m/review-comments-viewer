@@ -4,7 +4,7 @@ const stateManager = new StateManager({
     ReactDOM.render(App(), root);
   },
   initialState: {
-    setupDone: false,
+    setupDone: !!Settings.get("setupDone"),
     opened: [],
     resolved: [],
     selectedTab: "opened",
@@ -12,6 +12,11 @@ const stateManager = new StateManager({
 });
 
 stateManager.render();
+
+if (!!Settings.get("setupDone")) {
+  setupGithub();
+}
+
 function setupGithub() {
   const github = new GithubConnector({
     owner: Settings.get("github.owner"),
@@ -20,7 +25,6 @@ function setupGithub() {
   });
 
   github.getReviewComments().then(comments => {
-    console.log(comments);
     if (Settings.get("github.lastRevision") !== comments[0].revision) {
       Settings.set("github.lastRevision", comments[0].revision);
       Settings.set("github.resolved", "[]");

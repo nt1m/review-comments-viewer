@@ -2,6 +2,9 @@ const Settings = {
   get(item) {
     let value = localStorage.getItem(item);
     try {
+      if (value == null || value == undefined) {
+        throw "no value";
+      }
       return JSON.parse(value) || [];
     } catch (e) {
       return value || "";

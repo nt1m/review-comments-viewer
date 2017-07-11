@@ -13,6 +13,7 @@ function SetupScreen() {
             Settings.set("github." + el.name, form.elements[el.name].value);
           }
         }
+        Settings.set("setupDone", true);
         setupGithub();
         e.preventDefault();
       }
