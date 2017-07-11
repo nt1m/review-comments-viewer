@@ -57,6 +57,9 @@ ul {
   padding: 5px;
   color: white;
   flex: 1;
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .comment.plugin .comment-filepath {
   cursor: pointer;
