@@ -2,8 +2,9 @@
 
 function Comment({ comment }) {
   let isOpened = !!stateManager.getState().opened.find(c => c.id == comment.id);
+  let isInPlugin = typeof port !== "undefined" && isOpened;
   return createElement("div", {
-    className: "comment",
+    className: "comment " + (isInPlugin ? "plugin" : ""),
   },
     createElement("div", {
       className: "comment-actions",
@@ -11,11 +12,11 @@ function Comment({ comment }) {
       createElement("span", {
         className: "comment-filepath",
         onClick() {
-          if (typeof port !== "undefined" && isOpened)
+          if (isInPlugin)
             port.sendMessage({ file: comment.file, lineNumber: comment.lineNumber });
         }
       }, comment.file + ":" + comment.lineNumber),
-      (typeof port !== "undefined" && isOpened) && createElement("button", {
+      isInPlugin && createElement("button", {
         className: "comment-view-file",
         onClick() {
           port.sendMessage({ file: comment.file, lineNumber: comment.lineNumber });

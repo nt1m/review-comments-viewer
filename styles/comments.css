@@ -58,6 +58,12 @@ ul {
   color: white;
   flex: 1;
 }
+.comment.plugin .comment-filepath {
+  cursor: pointer;
+}
+.comment.plugin .comment-filepath:hover {
+  text-decoration: underline dotted;
+}
 .comment-diff {
   font-family: Menlo, Consolas, monospace;
   display: block;
