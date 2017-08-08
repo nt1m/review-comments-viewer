@@ -1,0 +1,12 @@
+.diff [class^=line] {
+  display: block;
+}
+.diff .line-added {
+  color: #30e60b;
+}
+.diff .line-removed {
+  color: #ff0039;
+}
+.diff .line-unchanged {
+  opacity: 0.4;
+}

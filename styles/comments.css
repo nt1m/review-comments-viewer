@@ -50,7 +50,7 @@ ul {
 
 .comment-filepath {
   font-family: Menlo, Consolas, monospace;
-  background: #0f1126;
+  background: #202340;
   width: 100%;
   font-size: 1em;
   display: block;
@@ -67,7 +67,8 @@ ul {
 .comment.plugin .comment-filepath:hover {
   text-decoration: underline dotted;
 }
-.comment-diff {
+.comment .diff {
+  border: none;
   font-family: Menlo, Consolas, monospace;
   display: block;
   background: #202340;

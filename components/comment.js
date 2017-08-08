@@ -33,9 +33,7 @@ function Comment({ comment }) {
         }
       }, isOpened ? "Resolve" : "Reopen")
     ),
-    createElement("code", {
-      className: "comment-diff",
-    }, comment.diff),
+    DiffHighlight({ diff: comment.diff }),
     createElement("p", {
       className: "comment-body",
       dangerouslySetInnerHTML: { __html: marked(comment.body) }
