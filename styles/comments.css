@@ -60,6 +60,7 @@ ul {
   min-width: 0;
   text-overflow: ellipsis;
   overflow: hidden;
+  padding-left: 1ch;
 }
 .comment.plugin .comment-filepath {
   cursor: pointer;
