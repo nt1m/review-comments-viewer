@@ -17,8 +17,10 @@ function Tabs({ tabs, selectedTab }) {
       createElement("div", { className: "float-right" },
         createElement("button", {
           className: "btn btn-borderless icon reload",
-          onClick() {
+          onClick({ target }) {
             setupGithub();
+            target.classList.add("animated");
+            setTimeout(() => target.classList.remove("animated"), 800)
           }
         }),
         createElement("button", {

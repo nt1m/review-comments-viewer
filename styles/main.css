@@ -36,8 +36,8 @@ code {
   display: inline-block;
   font-family: Menlo, Consolas, monospace;
   font-size: 0.9em;
-  border: 1px solid rgba(128,128,128,0.3);
-  background: rgba(128, 128, 128, 0.5);
+  border: 1px solid rgba(200,200,200,0.3);
+  background: rgba(200, 200, 200, 0.2);
   padding: 2px;
   border-radius: 2px;
 }
@@ -116,6 +116,17 @@ code {
 .icon.reload::before {
   background-image: url(../images/reload.svg);
 }
+.icon.reload.animated::before {
+  animation: rotate-reload 0.8s cubic-bezier(.07,.95,0,1);
+}
+@keyframes rotate-reload {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* settings */
+
 .settings-container {
   padding: 2rem;
 }
