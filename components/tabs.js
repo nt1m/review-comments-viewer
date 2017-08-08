@@ -14,12 +14,20 @@ function Tabs({ tabs, selectedTab }) {
           }
         }, t.label)
       )),
-      createElement("button", {
-        className: "settings-btn",
-        onClick() {
-          stateManager.setState({ setupDone: false });
-        }
-      })
+      createElement("div", { className: "float-right" },
+        createElement("button", {
+          className: "btn btn-borderless icon reload",
+          onClick() {
+            setupGithub();
+          }
+        }),
+        createElement("button", {
+          className: "btn btn-borderless icon settings",
+          onClick() {
+            stateManager.setState({ setupDone: false });
+          }
+        })
+      )
     ),
     createElement("div", { className: "tab-panel" },
       selected.component

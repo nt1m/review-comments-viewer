@@ -1,4 +1,4 @@
-function SetupScreen() {
+function GithubSetup() {
   return createElement("div", {
     className: "settings-container"
   },
@@ -37,9 +37,9 @@ function SetupScreen() {
         defaultValue: Settings.get("github.pr")
       }),
       createElement("button", {
-        className: "settings-btn on",
+        className: "btn btn-primary",
         type: "submit",
-      }),
+      }, "Done"),
     )
   );
 }

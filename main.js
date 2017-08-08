@@ -1,7 +1,9 @@
 const stateManager = new StateManager({
   renderer(state) {
     let root = document.getElementById("root");
-    ReactDOM.render(App(), root);
+    ReactDOM.render(App({
+      setupComponent: GithubSetup,
+    }), root);
   },
   initialState: {
     setupDone: !!Settings.get("setupDone"),

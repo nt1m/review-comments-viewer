@@ -38,6 +38,7 @@ function Comment({ comment }) {
     }, comment.diff),
     createElement("p", {
       className: "comment-body",
-    }, comment.body)
+      dangerouslySetInnerHTML: { __html: marked(comment.body) }
+    })
   );
 }

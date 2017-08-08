@@ -24,6 +24,28 @@ h1, h2 {
   box-sizing: border-box;
 }
 
+a {
+  color: #0a84ff;
+}
+
+a:not(:hover) {
+  text-decoration: none;
+}
+
+code {
+  display: inline-block;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(128,128,128,0.3);
+  background: rgba(128, 128, 128, 0.5);
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.float-right {
+  float: right;
+}
+
 .tabs {
   background: #fff;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
@@ -39,53 +61,61 @@ h1, h2 {
   flex: 1;
 }
 
-.settings-btn:not(.on) {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.settings-btn {
-  height: 35px;
-  width: 35px;
+/* Buttons */
+.btn {
+  vertical-align: middle;
+  font-size: 16px;
+  font-family: Fira Sans, sans-serif;
   text-align: center;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 2px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+.btn-primary {
+  background: #0a84ff;
+  color: #f9f9fa;
+  margin: 10px auto;
+}
+.btn-primary:hover {
+  background: #0060df;
+}
+
+.btn-primary:hover:active {
+  background: #003eaa;
+}
+.btn-borderless {
   border: none;
   background: none;
-  cursor: pointer;
 }
-.settings-btn:not(.on)::after {
+
+/* icons */
+.btn.icon {
+  height: 35px;
+  width: 35px;
+}
+.icon::before {
+  opacity: 0.8;
   content: "";
   display: inline-block;
-  background-image: url(../images/settings.svg);
   width: 16px;
   height: 16px;
   vertical-align: middle;
 }
-.dark-theme .settings-btn::after {
+.icon:hover::before,
+.icon:active::before {
+  opacity: 1;
+}
+.dark-theme .icon::before {
   filter: invert(1);
 }
-.settings-btn.on {
-  border-radius: 2px;
-  background: #0a84ff;
-  color: #f9f9fa;
-  border: 1px solid rgba(0,0,0,0.2);
-  width: auto;
-  margin: 10px auto;
+.icon.settings::before {
+  background-image: url(../images/settings.svg);
 }
-.settings-btn.on:hover {
-  background: #0060df;
+.icon.reload::before {
+  background-image: url(../images/reload.svg);
 }
-
-.settings-btn.on:hover:active {
-  background: #003eaa;
-}
-
-.settings-btn.on::before {
-  content: "Done";
-  vertical-align: middle;
-  font-size: 16px;
-  font-family: Fira Sans, sans-serif;
-}
-
 .settings-container {
   padding: 2rem;
 }

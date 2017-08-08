@@ -1,4 +1,4 @@
-function App() {
+function App({ setupComponent }) {
   const state = stateManager.getState();
   return state.setupDone ? Tabs({
     selectedTab: state.selectedTab,
@@ -11,5 +11,5 @@ function App() {
       label: "Resolved",
       component: Comments({ comments: state.resolved }),
     }]
-  }) : SetupScreen();
+  }) : setupComponent();
 }
