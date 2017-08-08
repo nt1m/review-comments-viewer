@@ -27,7 +27,7 @@ function setupGithub() {
   });
 
   github.getReviewComments().then(comments => {
-    if (Settings.get("github.lastRevision") !== comments[0].revision) {
+    if (comments.length > 0 && Settings.get("github.lastRevision") !== comments[0].revision) {
       Settings.set("github.lastRevision", comments[0].revision);
       Settings.set("github.resolved", "[]");
     }
