@@ -5,10 +5,12 @@ function App({ setupComponent }) {
     tabs: [{
       id: "opened",
       label: "Opened",
+      badge: state.opened.length,
       component: Comments({ comments: state.opened }),
     }, {
       id: "resolved",
       label: "Resolved",
+      badge: state.resolved.length,
       component: Comments({ comments: state.resolved }),
     }]
   }) : setupComponent();

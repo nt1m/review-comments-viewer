@@ -12,7 +12,10 @@ function Tabs({ tabs, selectedTab }) {
           onClick() {
             stateManager.setState({ selectedTab: t.id })
           }
-        }, t.label)
+        }, 
+          createElement("span", {}, t.label),
+          t.hasOwnProperty("badge") && createElement("span", { className: "badge" }, t.badge)
+        )
       )),
       createElement("div", { className: "float-right" },
         createElement("button", {

@@ -38,3 +38,11 @@
 .tabs li.selected a::after {
   transform: none;
 }
+
+.badge {
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.15);
+  padding: 0 5px;
+  margin-left: 5px;
+}
