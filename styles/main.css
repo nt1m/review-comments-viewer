@@ -42,6 +42,13 @@ code {
   border-radius: 2px;
 }
 
+blockquote {
+  border-left: 2px solid currentColor;
+  margin: 0;
+  padding: 0 10px;
+  opacity: 0.5;
+}
+
 .float-right {
   float: right;
 }
