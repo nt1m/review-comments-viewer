@@ -86,7 +86,6 @@ ul {
 .comment-resolve,
 .comment-view-file {
   text-align: center;
-  background: #30e60b;
   color: #000;
   font: inherit;
   padding: 5px 10px;
@@ -107,9 +106,31 @@ ul {
   vertical-align: middle;
 }
 
+.comment-resolve {
+  background: #30e60b;
+  border-bottom-left-radius: 2px;
+}
+
+.comment-resolve:hover {
+  background: #12bc00;
+}
+
+.comment-resolve:hover:active {
+  background: #058b00;
+}
+
 .comment-reopen {
   background: #ff0039;
   color: white;
+  border-bottom-left-radius: 2px;
+}
+
+.comment-reopen:hover {
+  background: #d70022;
+}
+
+.comment-reopen:hover:active {
+  background: #a4000f;
 }
 
 .comment-view-file {
